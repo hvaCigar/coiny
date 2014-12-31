@@ -68,3 +68,16 @@
         updatedAt: 248492749274,
         uuid: "71818181-89ab-cdef-0123-456789abcdef"
     }
+
+### DELETE /users/71818181-89ab-cdef-0123-456789abcdef
+Удалить пользователя
+
+### Request
+#### Headers
+
+    Authorization: 548ee277bf0bb00001c55db4
+
+### Response
+#### Code
+
+    204 No Content
