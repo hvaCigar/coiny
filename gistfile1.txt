@@ -1,0 +1,23 @@
+Я пишу, грубо:
+
+1. Загрузить данные о юзере впервые:
+POST /users/actions/create 
+
+request: {
+  blabla: blabla,
+  blabla2: blabla2,
+  id: 01234567-89ab-cdef-0123-456789abcdef,
+  user: {
+    email: blabla@bla.bla,
+    password: anus,
+    username: vasya,
+    created_at: 1945-05-01T14:88:00,
+  }
+}
+
+// тут идет обработка запроса типа добавление данных в бд
+
+response: {
+  status: 201 //vse zaebis?
+}
+
