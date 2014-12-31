@@ -9,10 +9,12 @@
 
     [
         {
-            uuid: "01234567-89ab-cdef-0123-456789abcdef"
+            uuid: "01234567-89ab-cdef-0123-456789abcdef",
+            email: "blabla@bla.bla"
         },
         {
-            uuid: "71818181-89ab-cdef-0123-456789abcdef"
+            uuid: "71818181-89ab-cdef-0123-456789abcdef",
+            email: "second@one.com"
         }
     ]
 
