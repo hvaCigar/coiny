@@ -1,23 +1,70 @@
-Я пишу, грубо:
+## GET /users/
+Получить данные о всех пользователях
 
-1. Загрузить данные о юзере впервые:
-POST /users/actions/create 
+### Response
+#### Code
+200 OK
 
-request: {
-  blabla: blabla,
-  blabla2: blabla2,
-  id: 01234567-89ab-cdef-0123-456789abcdef,
-  user: {
-    email: blabla@bla.bla,
-    password: anus,
-    username: vasya,
-    created_at: 1945-05-01T14:88:00,
-  }
-}
+#### Body
 
-// тут идет обработка запроса типа добавление данных в бд
+    [
+        {
+            uuid: "01234567-89ab-cdef-0123-456789abcdef"
+        },
+        {
+            uuid: "71818181-89ab-cdef-0123-456789abcdef"
+        }
+    ]
 
-response: {
-  status: 201 //vse zaebis?
-}
+## POST /users/
+Создать пользователя
 
+### Request
+#### Body
+
+    {
+        email: "blabla@bla.bla",
+        password: "123456"
+    }
+
+### Response
+#### Code
+201 Created
+
+#### Body
+
+    {
+        email: "blabla@bla.bla",
+        password: "123456",
+        createdAt: 131535254242,
+        uuid: "71818181-89ab-cdef-0123-456789abcdef"
+    }
+
+### PUT /users/71818181-89ab-cdef-0123-456789abcdef
+Обновить информацию о пользователе (частично)
+
+### Request
+#### Headers
+
+    Authorization: 548ee277bf0bb00001c55db4
+
+#### Body
+
+    {
+        password: "qwerty"
+    }
+
+### Response
+#### Code
+
+    200 OK
+
+#### Body
+
+    {
+        email: "blabla@bla.bla",
+        password: "qwerty",
+        createdAt: 131535254242,
+        updatedAt: 248492749274,
+        uuid: "71818181-89ab-cdef-0123-456789abcdef"
+    }
