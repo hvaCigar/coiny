@@ -289,14 +289,16 @@
         {
             value: 12000,
             unit: "RUB",
-            created_at: "2012-01-01T12:00:00Z",
-            updated_at: "2012-01-02T12:00:00Z",
+            date: "2012-01-01T12:00:00Z",
+            createdAt: "2012-01-01T12:00:00Z",
+            updatedAt: "2012-01-02T12:00:00Z",
         },
         {
             value: 300,
             unit: "USD",
-            created_at: "2012-01-01T12:00:00Z",
-            updated_at: "2012-01-02T12:00:00Z",
+            date: "2012-01-01T12:00:00Z",
+            createdAt: "2012-01-01T12:00:00Z",
+            updatedAt: "2012-01-02T12:00:00Z",
         }
     ]
 
@@ -356,15 +358,17 @@
         {
             value: 12000,
             unit: "RUB",
-            created_at: "2012-01-01T12:00:00Z",
-            updated_at: "2012-01-02T12:00:00Z",
+            date: "2012-01-01T12:00:00Z",
+            createdAt: "2012-01-01T12:00:00Z",
+            updatedAt: "2012-01-02T12:00:00Z",
             uuid: '71818181-89ab-cdef-0123-456789abcdef'
         },
         {
             value: 300,
             unit: "USD",
-            created_at: "2012-01-01T12:00:00Z",
-            updated_at: "2012-01-02T12:00:00Z",
+            date: "2012-01-01T12:00:00Z",
+            createdAt: "2012-01-01T12:00:00Z",
+            updatedAt: "2012-01-02T12:00:00Z",
             uuid: '71818181-8etc-cdef-0123-456789abcdef'
         }
     ]
@@ -473,6 +477,7 @@
     {
         value: 10000,
         unit: "RUB",
+        date: "2013-01-01T12:00:00Z"
     }
 
 ### Response
@@ -484,7 +489,8 @@
     {
         value: 10000,
         unit: "RUB",
-        createdAt: "2012-01-01T12:00:00Z",
+        date: "2013-01-01T12:00:00Z",
+        createdAt: "2015-01-01T12:00:00Z",
         uuid: "71818181-89ab-cdef-0123-456789abcdef" // uuid расхода, а не пользователя
     }
 
@@ -505,6 +511,10 @@
         {
             key: 'value',
             message: 'Значение должно быть integer, неверный формат значения расходов'
+        },
+        {
+            key: 'date',
+            message: 'Неверный формат даты, должен быть unix timestamp'
         }
     }
     
@@ -534,7 +544,8 @@
 
     {
         value: 12000,
-        unit: "RUB"
+        unit: "RUB",
+        date: "2012-01-01T12:00:00Z"
     }
 
 ### Response
@@ -548,6 +559,7 @@
     {
         value: 10000,
         unit: "RUB",
+        date: "2012-01-01T12:00:00Z",
         createdAt: "2012-01-01T12:00:00Z",
         uuid: "71818181-89ab-cdef-0123-456789abcdef" // uuid расхода, а не пользователя
     }
@@ -570,6 +582,10 @@
         {
             key: 'value',
             message: 'Значение должно быть integer, неверный формат значения расходов'
+        },
+        {
+            key: 'date',
+            message: 'Неверный формат даты, должен быть unix timestamp'
         }
     }
 
