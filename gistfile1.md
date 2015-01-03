@@ -2,7 +2,7 @@
 Все манипуляции с пользователями
 
 ## GET /users/
-Получить данные о всех пользователях. Можно получить информацию о пользователе с определенными параметрами: username, email или id. Могут быть введены как все сразу, так и по отдельности (только username или только email).
+Получить данные о всех пользователях. 
 
 
 ### Request
@@ -16,7 +16,7 @@
 Ответ отправит массив со всеми пользователями
 
 #### Code
-200 OK
+    200 OK
 
 #### Body
 
@@ -24,37 +24,34 @@
         {
             uuid: "01234567-89ab-cdef-0123-456789abcdef",
             email: "blabla@bla.bla",
-            username: "sample_username",
             created_at: "2012-01-01T12:00:00Z",
             updated_at: "2012-01-02T12:00:00Z",
         },
         {
             uuid: "01234567-8etc-cdef-0123-456789abcdef",
             email: "blabla@bla2.bla",
-            username: "sample_username2",
             created_at: "2012-01-01T12:00:00Z",
             updated_at: "2012-01-02T12:00:00Z",
         }
     ]
+
+
+## GET /users/?email=blabla@bla@.bla&uuid=01234567-89ab-cdef-0123-456789abcdef
+Можно получить информацию о пользователе с определенными параметрами: email или uuid. Могут быть введены как все сразу, так и по отдельности (только uuid или только email).
 
 ### Request
 Запрос с параметрами. Поле содержит массив с данными. Все поля необязательны для заполнения. 
 
 #### Query
     {
-        // username: optional
-        username: [
-            "sample_username", 
-            "sample_username2"
-        ],
         // email: optional
         email: [
             "blabla@bla.bla",
             "blabla@bla2.bla",
         ]
+        // uuid: optional
         uuid: [
-            "01234567-89ab-cdef-0123-456789abcdef",
-            "01234567-8etc-cdef-0123-456789abcdef",
+            "01234567-89ab-cdef-0123-456789abcdef"
         ]
     }
     
@@ -62,23 +59,21 @@
 Ответ от сервера отправит массив данных со всеми пользователями, которые попадают под запрос. 
 
 #### Code
-200 OK
+    200 OK
 
 #### Body
     [
         {
             uuid: "01234567-89ab-cdef-0123-456789abcdef",
             email: "blabla@bla.bla",
-            username: "sample_username",
-            created_at: "2012-01-01T12:00:00Z",
-            updated_at: "2012-01-02T12:00:00Z",
+            createdAt: "2012-01-01T12:00:00Z",
+            updatedAt: "2012-01-02T12:00:00Z",
         },
         {
             uuid: "01234567-8etc-cdef-0123-456789abcdef",
             email: "blabla@bla2.bla",
-            username: "sample_username2",
-            created_at: "2012-01-01T12:00:00Z",
-            updated_at: "2012-01-02T12:00:00Z",
+            createdAt: "2012-01-01T12:00:00Z",
+            updatedAt: "2012-01-02T12:00:00Z",
         }
     ]
     
@@ -88,7 +83,7 @@
 Ничего не найдено по тем параметрам, которые были отправлены
 
 #### Code
-404 Not Found 
+    404 Not Found 
 
 #### Body
     {
@@ -96,17 +91,6 @@
         message: "Ничего не найдено по запросу",
     }
 
-### Response
-Доступ запрещен, клиент не может получать данные о пользователях
-
-#### Code
-403 Forbidden
-
-#### Body 
-    {
-        error: true
-        message: "Доступ запрещен"
-    }
 
 ## POST /users/
 Создать пользователя
@@ -116,20 +100,34 @@
 
     {
         email: "blabla@bla.bla",
-        password: "123456"
+        password: "123456",
     }
 
 ### Response
 #### Code
-201 Created
+    201 Created
 
 #### Body
 
     {
         email: "blabla@bla.bla",
         password: "123456",
-        createdAt: 131535254242,
+        createdAt: "2012-01-01T12:00:00Z",
         uuid: "71818181-89ab-cdef-0123-456789abcdef"
+    }
+
+## Ошибки запросов в POST /users/    
+    
+### Response 
+Не может быть создан пользователь с такими данными
+
+#### Code
+    406 Not Acceptable
+
+#### Body
+    {
+        error: true,
+        message: "Пользователь с такими данными уже существует",
     }
 
 ### PUT /users/71818181-89ab-cdef-0123-456789abcdef
@@ -173,3 +171,16 @@
 #### Code
 
     204 No Content
+    
+## Общие ошибки    
+### Response
+Доступ запрещен, клиент не может получать данные
+
+#### Code
+403 Forbidden
+
+#### Body 
+    {
+        error: true
+        message: "Доступ запрещен"
+    }
