@@ -1,3 +1,6 @@
+# USERS
+Все манипуляции с пользователями
+
 ## GET /users/
 Получить данные о всех пользователях
 
@@ -17,6 +20,17 @@
             email: "second@one.com"
         }
     ]
+
+## GET /users/
+Получить информацию о пользователе с определенными параметрами
+
+### Request
+#### Query
+    {
+        login: "sample_username",
+        email: "blabla@bla.bla",
+        id: "12345"
+    }
 
 ## POST /users/
 Создать пользователя
