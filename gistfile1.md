@@ -36,7 +36,7 @@
     ]
 
 
-## GET /users/?email=blabla@bla@.bla&uuid=01234567-89ab-cdef-0123-456789abcdef
+## GET /users/?email=blabla@bla.bla&uuid=01234567-89ab-cdef-0123-456789abcdef
 Можно получить информацию о пользователе с определенными параметрами: email или uuid. Могут быть введены как все сразу, так и по отдельности (только uuid или только email).
 
 ### Request
