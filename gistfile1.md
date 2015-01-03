@@ -10,10 +10,6 @@
 
     Authorization: 548ee277bf0bb00001c55db4
 
-#### Query
-    {
-    }
-
 ### Response
 Ответ отправит массив со всеми пользователями
 
@@ -26,14 +22,14 @@
         {
             uuid: "01234567-89ab-cdef-0123-456789abcdef",
             email: "blabla@bla.bla",
-            created_at: "2012-01-01T12:00:00Z",
-            updated_at: "2012-01-02T12:00:00Z",
+            createdAt: 1420300552,
+            updatedAt: 1420300552,
         },
         {
             uuid: "01234567-8etc-cdef-0123-456789abcdef",
             email: "blabla@bla2.bla",
-            created_at: "2012-01-01T12:00:00Z",
-            updated_at: "2012-01-02T12:00:00Z",
+            createdAt: 1420300552,
+            updatedAt: 1420300552,
         }
     ]
 
